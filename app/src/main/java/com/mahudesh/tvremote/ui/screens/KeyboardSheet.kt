@@ -120,31 +120,14 @@ fun KeyboardSheet(
                 )
             }
             Spacer(Modifier.width(10.dp))
-            if (voiceMode) YouTubeButton(enabled = text.isNotBlank()) { haptics.success(); onSearchYouTube(text) }
-            else SheetIcon(Lu.Send, "Send", accent = true) { haptics.success(); onSubmit(text) }
+            YouTubeButton(enabled = text.isNotBlank()) { haptics.success(); onSearchYouTube(text) }
         }
         Spacer(Modifier.height(12.dp))
-        if (voiceMode) Text(
-            "Fix the words if needed, then tap YouTube to search on your TV.",
+        Text(
+            if (voiceMode) "Fix the words if needed, then tap YouTube to search on your TV."
+            else "Letters appear in the TV's open search box as you type. Tap YouTube to search there.",
             style = MaterialTheme.typography.labelMedium, color = Ink.muted,
-        ) else Row(verticalAlignment = Alignment.CenterVertically) {
-            Text(
-                "Open a search box on the TV first; letters appear there as you type. " +
-                    "For YouTube, just type here and tap Search YouTube.",
-                style = MaterialTheme.typography.labelMedium,
-                color = Ink.muted,
-                modifier = Modifier.weight(1f),
-            )
-            Text(
-                "Search YouTube",
-                style = MaterialTheme.typography.labelLarge,
-                color = if (text.isBlank()) Ink.faint else Ink.amber,
-                modifier = Modifier
-                    .clip(RoundedCornerShape(12.dp))
-                    .clickable(enabled = text.isNotBlank()) { haptics.success(); onSearchYouTube(text) }
-                    .padding(horizontal = 10.dp, vertical = 8.dp),
-            )
-        }
+        )
     }
 }
 

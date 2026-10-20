@@ -146,8 +146,7 @@ class MainActivity : ComponentActivity() {
                     override fun submitText(text: String) { controller.submitText(text) }
                     override fun keyboardOpened() = controller.resetTyping()
                     override fun listen(onText: (String) -> Unit) = this@MainActivity.listen(onText)
-                    override fun searchYouTube(query: String) =
-                        controller.openLink("https://www.youtube.com/results?search_query=" + android.net.Uri.encode(query))
+                    override fun searchYouTube(query: String) = controller.searchYouTube(query)
                     override fun onSettings() { screen = Screen.Settings }
                     override suspend fun ping() = controller.ping()
                     override fun reconnect() = controller.connect(force = true)

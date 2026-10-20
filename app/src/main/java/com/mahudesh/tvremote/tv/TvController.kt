@@ -374,6 +374,7 @@ class TvController(context: Context) {
     // ---------- Commands ----------
 
     fun key(code: Int, direction: KeyDirection = KeyDirection.SHORT) {
+        youTubeRepeat?.cancel() // the user is already navigating; don't reload the results under them
         if (code == Keys.VOLUME_UP || code == Keys.VOLUME_DOWN || code == Keys.MUTE) refreshProVolumeSoon()
         if (direction != KeyDirection.END_LONG) when (code) {
             Keys.MUTE -> localMute.value = !localMute.value
@@ -385,6 +386,24 @@ class TvController(context: Context) {
     }
 
     fun openLink(link: String) { session?.openLink(link) }
+
+    private var youTubeRepeat: Job? = null
+
+    /**
+     * Searches YouTube on the TV with the first result focused.
+     *
+     * YouTube TV opened cold by a search link shows the results with nothing focused, so the D-pad
+     * does nothing (verified on a Mi TV); when YouTube is already open the same link focuses the
+     * first result. So we send it once more after the app has loaded, unless the user starts
+     * navigating first.
+     */
+    fun searchYouTube(query: String) {
+        val link = "https://www.youtube.com/results?search_query=" + android.net.Uri.encode(query.trim())
+        youTubeRepeat?.cancel()
+        openLink(link)
+        if (status.value.currentApp == YOUTUBE_TV) return
+        youTubeRepeat = scope.launch { delay(7_000); openLink(link) }
+    }
 
     /** What we've typed into the TV's field so far, for key-by-key typing. */
     @Volatile private var typed = ""
@@ -591,6 +610,8 @@ class TvController(context: Context) {
     fun adbOpenSettings() = scope.launch { withAdb { it.openSettings() } }
     fun adbSetVolume(level: Int) = scope.launch { withAdb { it.setVolume(level) }; refreshProVolumeSoon() }
 }
+
+private const val YOUTUBE_TV = "com.google.android.youtube.tv"
 
 sealed interface ProState {
     data object Off : ProState

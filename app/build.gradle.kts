@@ -20,8 +20,8 @@ android {
         applicationId = "com.mahudesh.tvremote"
         minSdk = 26
         targetSdk = 37
-        versionCode = 9
-        versionName = "1.0.2"
+        versionCode = 10
+        versionName = "1.0.3"
         // Where in-app updates come from (GitHub Releases).
         buildConfigField("String", "UPDATE_REPO", "\"Mahudesh/clicko\"")
     }
