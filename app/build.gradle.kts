@@ -23,7 +23,7 @@ android {
         versionCode = 7
         versionName = "1.0.0"
         // Where in-app updates come from (GitHub Releases).
-        buildConfigField("String", "UPDATE_REPO", "\"Mahudesh7/clicko\"")
+        buildConfigField("String", "UPDATE_REPO", "\"Mahudesh/clicko\"")
     }
 
     signingConfigs {

@@ -1,129 +1,195 @@
-<p align="center">
-  <img src="docs/logo.png" width="120" alt="Clicko logo" />
-</p>
+<div align="center">
 
-<h1 align="center">Clicko</h1>
+<img src="docs/logo.png" width="104" alt="Clicko" />
 
-<h3 align="center">Your phone is the remote now.</h3>
+# Clicko
 
-<p align="center">
-  Control your Android TV from your phone over Wi-Fi.<br/>
-  No IR blaster. No lost remotes. No dead batteries. No ads. Free.
-</p>
+**The TV remote that shows you the TV.**
 
-<p align="center">
-  <a href="../../releases/latest"><img alt="Download" src="https://img.shields.io/badge/Download-Clicko%20APK-FFB547?style=for-the-badge&labelColor=0B0B0E" /></a>
-  &nbsp;
-  <img alt="Free" src="https://img.shields.io/badge/Price-Free-4ADE80?style=for-the-badge&labelColor=0B0B0E" />
-  &nbsp;
-  <img alt="No ads" src="https://img.shields.io/badge/Ads-None-F4F2EE?style=for-the-badge&labelColor=0B0B0E" />
-</p>
+Watch your Android TV live on your phone, type on it, talk to it, automate it —<br/>
+all over Wi-Fi. Works on brand-new Google TVs and on sets that are years old.
 
-<p align="center">
-  <img src="docs/screenshots/1-remote.png" width="200" />
-  <img src="docs/screenshots/6-pro-live.png" width="200" />
-  <img src="docs/screenshots/2-touchpad.png" width="200" />
-</p>
+<br/>
 
----
+[![Download](https://img.shields.io/github/v/release/Mahudesh/clicko?style=for-the-badge&label=Download&color=FFB547&labelColor=0B0B0E)](../../releases/latest)
+![Android](https://img.shields.io/badge/Android-8%2B-4ADE80?style=for-the-badge&labelColor=0B0B0E&logo=android&logoColor=white)
+![Price](https://img.shields.io/badge/Free-no%20ads-F4F2EE?style=for-the-badge&labelColor=0B0B0E)
 
-## 📺 Works with your TV — old or new
+<br/>
 
-Xiaomi Mi TV, Sony, TCL, OnePlus, Philips, Haier, Google TV, Chromecast with Google TV, Android TV boxes…
-If it runs **Android TV or Google TV**, Clicko talks to it — from brand-new models down to TVs that are years old.
+<img src="docs/screenshots/6-pro-live.png" width="230" />&nbsp;&nbsp;
+<img src="docs/screenshots/1-remote.png" width="230" />&nbsp;&nbsp;
+<img src="docs/screenshots/3-macros.png" width="230" />
 
-Just be on the same Wi-Fi. Or turn on your phone's **hotspot** and connect the TV to it — Clicko works there too.
+</div>
 
----
+<br/>
 
-## ✨ What you get
+## Why Clicko
 
-### 🎮 A remote that feels better than the real one
-Round D-pad, volume, mute, play/pause, rewind, home, back and power — big, smooth, with a little buzz on every press.
-The power button even shows a **green dot when your TV is on**.
+|  | Plain remote apps | **Clicko** |
+|---|:---:|:---:|
+| D-pad, volume, playback | ✅ | ✅ |
+| Old TVs (pre-2020 Android TV) | ⚠️ often fail | ✅ auto-detects |
+| See your TV screen live, in HD | ❌ | ✅ |
+| Full-screen landscape TV view | ❌ | ✅ |
+| Type on TV as you type on phone | ⚠️ sometimes | ✅ |
+| Your own one-tap macros | ❌ | ✅ |
+| Every installed TV app, one list | ❌ | ✅ |
+| Works on your phone's hotspot | ⚠️ | ✅ |
+| Ads / account / tracking | 😩 | **None** |
 
-### 👆 Touchpad mode
-Swipe to move, tap to select — like a laptop trackpad for your TV.
+<br/>
+
+## Features
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 📡 Live TV, in your hand
+Your TV's screen, streamed to your phone in **HD at the TV's own resolution**.
+Flip to **full-screen landscape** and the TV goes wherever you go in the house.
+
+</td>
+<td width="50%" valign="top">
+
+### ⌨️ Type, don't hunt
+Type on your phone and the letters **appear on the TV as you go** —
+YouTube, Hotstar, Netflix, Prime, Wi-Fi passwords. One tap **Search YouTube**.
+
+</td>
+</tr>
+<tr>
+<td valign="top">
 
 ### 🎙️ Voice search
-One tap opens your TV's voice search. Just say what you want to watch.
+One tap wakes your TV's voice search. Say the movie, done.
 
-### ⌨️ Type from your phone
-Forget hunting letters with arrow keys. Type on your phone's keyboard and the words **appear on the TV as you type** —
-search YouTube, Hotstar, Netflix, Prime, Wi-Fi passwords, anything.
-One tap **Search YouTube** jumps straight to results.
+</td>
+<td valign="top">
 
-### 🚀 Apps in one tap
-YouTube · Netflix · Prime Video · JioHotstar · Spotify · Play Store — open them instantly, no scrolling.
+### 👆 Touchpad
+Swipe to move, tap to select. Like a trackpad for your living room.
 
-### 🏠 All your TVs
-Living room, bedroom, a friend's place. Pair once, switch any time.
+</td>
+</tr>
+<tr>
+<td valign="top">
 
----
+### 🚀 One-tap apps
+YouTube · Netflix · Prime Video · JioHotstar · Spotify · Play Store.
 
-## ⚡ Pro mode — superpowers for your TV
+</td>
+<td valign="top">
 
-Turn on Pro mode once and Clicko unlocks things no normal remote can do:
+### 🟢 Knows when the TV is on
+A live dot on the power button. Reconnects by itself when the TV wakes up.
 
-<p align="center">
-  <img src="docs/screenshots/6-pro-live.png" width="260" />
-</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
 
-- 📡 **Live TV on your phone** — watch your TV's screen live on your phone, in **HD**. Go **full-screen landscape** and it's a second TV in your hand.
-- 🔊 **Real volume slider** — see the exact level and drag to set it.
-- 📱 **Every app on your TV** — the full list with logos. Tap to open, hold to close.
-- ⚙️ **TV settings in one tap** — jump straight into the TV's settings panel.
-- ❌ **Close stuck apps** — force-close whatever's frozen on screen.
-- ℹ️ **TV details** — brand, model, Android version and free storage at a glance.
+### 📺 Every TV you own
+Living room, bedroom, a friend's place. Pair once, switch in a tap.
 
-*How to turn it on:* TV **Settings → About → click "Build" 7 times**, then **Developer options → turn on USB / ADB debugging**. In Clicko: **Settings → Pro mode** → accept **"Allow debugging?"** on the TV with **Always allow**. Done, forever.
+</td>
+<td valign="top">
 
-> 🔒 Netflix, Hotstar and other protected apps show black in the live view — that's Android protecting their videos, not a bug.
+### 🔄 Updates itself
+New version? Clicko fetches it quietly and asks once. Your TVs and settings stay put.
 
----
+</td>
+</tr>
+</table>
 
-## 🪄 Create your own macros
+<br/>
 
-**One tap. A whole routine.**
+## ⚡ Pro mode
 
-Chain buttons, apps, text and waits into your own shortcut:
+Flip one switch and Clicko gets the keys to the whole TV.
 
-<p align="center">
-  <img src="docs/screenshots/3-macros.png" width="220" />
-</p>
+<div align="center">
+<img src="docs/screenshots/6-pro-live.png" width="250" />
+</div>
 
-| Macro | What one tap does |
-|---|---|
-| 🍿 **Movie night** | Opens Netflix → turns the volume up for the film |
-| 🎧 **Music** | Opens YouTube → straight to search |
-| 🤫 **Quiet** | Brings the volume down five steps |
-| 🌙 **Sleep** | Goes home → switches the TV off |
+- **Live screen** — HD mirror of the TV, with full-screen landscape
+- **Exact volume** — see the real level, drag to set it
+- **Every app** — the complete list with logos; tap to open, hold to force-close
+- **Settings panel** — jump into the TV's settings in one tap
+- **Close stuck apps** — kill whatever froze on screen
+- **TV at a glance** — brand, model, Android version, free storage
 
-Make your own: **Settings → Macros → New macro**. Your TV, your routine.
+<details>
+<summary><b>Turn on Pro mode (one time, 1 minute)</b></summary>
 
----
+<br/>
 
-## ⬇️ Install in 30 seconds
+1. TV → **Settings → Device preferences → About** → click **Build** 7 times.
+2. **Developer options** → turn on **USB / ADB debugging** (and **Network debugging** if you see it).
+3. Clicko → **Settings → Pro mode** → on.
+4. On the TV, tick **Always allow** → **OK**. That's it, forever.
 
-1. On your phone, open the **[latest release](../../releases/latest)** and download **`Clicko-x.y.z.apk`**.
-2. Open it → Android asks to allow installs → **Allow** → **Install**.
-3. Open Clicko → **+** → tap your TV → type the code shown on the TV screen.
+Newer TVs that only offer *Wireless debugging* can pair from the same screen in Clicko.
 
-That's it — you're in control. 🎉
+> 🔒 Netflix, Hotstar and other protected apps appear black in the live view. That's Android guarding their video, not a bug.
 
-**Updates are automatic:** when a new version is out, Clicko downloads it quietly and shows an **Update** button. One tap, and your TVs and settings stay exactly as they were.
+</details>
 
----
+<br/>
 
-## 🛡️ Private by design
+## 🪄 Macros — one tap, a whole routine
 
-- No account, no sign-up
-- No ads, no tracking, no analytics
-- Everything stays between your phone and your TV, on your own Wi-Fi
+Chain buttons, apps, text and pauses into your own shortcuts. Clicko ships with four to get you going:
 
----
+<div align="center">
 
-<p align="center">
-  Made with ☕ in India · <a href="LICENSE">MIT License</a><br/>
-  <sub>If Clicko made your couch life easier, give it a ⭐</sub>
-</p>
+| | Macro | One tap does |
+|:---:|---|---|
+| 🍿 | **Movie night** | Opens Netflix → turns the volume up for the film |
+| 🎧 | **Music** | Opens YouTube → straight to search |
+| 🤫 | **Quiet** | Brings the volume down five steps |
+| 🌙 | **Sleep** | Goes home → switches the TV off |
+
+</div>
+
+Build your own in **Settings → Macros → New macro**. Your TV, your routine.
+
+<br/>
+
+## Get started
+
+1. Grab **`Clicko-x.y.z.apk`** from the **[latest release](../../releases/latest)** on your phone.
+2. Open it → **Allow** installs from your browser → **Install**.
+3. In Clicko tap **＋**, pick your TV, and enter the code it shows.
+
+Phone and TV just need the same Wi-Fi — or connect the TV to your phone's hotspot.
+
+<br/>
+
+## Works with
+
+Xiaomi Mi TV · Sony Bravia · TCL · OnePlus · Philips · Haier · Hisense · iFFALCON · Chromecast with Google TV · Android TV boxes — anything running **Android TV** or **Google TV**.
+
+<br/>
+
+## Privacy
+
+No account. No ads. No analytics. Your phone talks to your TV on your own Wi-Fi and nothing else —
+the only internet call is the update check to this page.
+
+<br/>
+
+<div align="center">
+<img src="docs/screenshots/2-touchpad.png" width="180" />&nbsp;
+<img src="docs/screenshots/4-your-tvs.png" width="180" />&nbsp;
+<img src="docs/screenshots/5-settings.png" width="180" />
+
+<br/><br/>
+
+Made in India 🇮🇳 · [MIT License](LICENSE)
+
+<sub>If Clicko made couch life better, drop a ⭐ — it helps others find it.</sub>
+
+</div>
