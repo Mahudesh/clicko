@@ -1,0 +1,15 @@
+.gradle/
+build/
+local.properties
+.idea/
+*.iml
+.DS_Store
+.kotlin/
+tools/.fake-tv/
+TV-Remote.apk
+TV-Remote-*.apk
+
+# Signing keys never go in git
+*.jks
+keystore.properties
+Clicko-*.apk

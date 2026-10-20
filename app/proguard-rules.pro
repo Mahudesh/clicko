@@ -1,0 +1,6 @@
+-keep class com.flyfishxu.kadb.** { *; }
+-dontwarn com.flyfishxu.kadb.**
+-dontwarn org.conscrypt.**
+-dontwarn org.slf4j.**
+-keep class org.bouncycastle.** { *; }
+-dontwarn org.bouncycastle.**
