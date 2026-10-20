@@ -1,78 +1,129 @@
 <p align="center">
-  <img src="docs/logo.png" width="112" alt="Clicko logo" />
+  <img src="docs/logo.png" width="120" alt="Clicko logo" />
 </p>
 
 <h1 align="center">Clicko</h1>
 
+<h3 align="center">Your phone is the remote now.</h3>
+
 <p align="center">
-  Turn your phone into a remote for any Android TV — over Wi-Fi, no IR, no account.<br/>
-  Free, no ads, no tracking.
+  Control your Android TV from your phone over Wi-Fi.<br/>
+  No IR blaster. No lost remotes. No dead batteries. No ads. Free.
 </p>
 
 <p align="center">
-  <a href="../../releases/latest"><b>⬇ Download the latest APK</b></a>
+  <a href="../../releases/latest"><img alt="Download" src="https://img.shields.io/badge/Download-Clicko%20APK-FFB547?style=for-the-badge&labelColor=0B0B0E" /></a>
+  &nbsp;
+  <img alt="Free" src="https://img.shields.io/badge/Price-Free-4ADE80?style=for-the-badge&labelColor=0B0B0E" />
+  &nbsp;
+  <img alt="No ads" src="https://img.shields.io/badge/Ads-None-F4F2EE?style=for-the-badge&labelColor=0B0B0E" />
 </p>
 
 <p align="center">
   <img src="docs/screenshots/1-remote.png" width="200" />
-  <img src="docs/screenshots/2-touchpad.png" width="200" />
-  <img src="docs/screenshots/3-macros.png" width="200" />
-</p>
-<p align="center">
-  <img src="docs/screenshots/4-your-tvs.png" width="200" />
-  <img src="docs/screenshots/5-settings.png" width="200" />
   <img src="docs/screenshots/6-pro-live.png" width="200" />
+  <img src="docs/screenshots/2-touchpad.png" width="200" />
 </p>
 
-## Features
+---
 
-- **Works with old and new Android TVs.** Clicko tries every known pairing method (Android TV Remote v2 and the older v1) and remembers what your TV speaks. Tested on a Xiaomi Mi TV (Android 9).
-- **Full remote:** D-pad, touchpad, volume, mute, playback, home, back, voice search, power — with a live on/off dot.
-- **Type on TV** from your phone keyboard, plus a one-tap YouTube search.
-- **One-tap apps:** YouTube, Netflix, Prime Video, JioHotstar, Spotify, Play Store.
-- **Macros:** chain buttons, apps and waits ("Movie night", "Quiet"…).
-- **Phone hotspot friendly:** works when the TV is connected to your phone's hotspot.
-- **Several TVs:** home, bedroom, a friend's place — switch any time.
-- **Pro mode (optional, via ADB):**
-  - **Live TV screen** on your phone, in HD (the TV's own resolution), with full-screen landscape.
-  - Real volume slider, every installed app, close the current app, TV info.
+## 📺 Works with your TV — old or new
 
-## Install
+Xiaomi Mi TV, Sony, TCL, OnePlus, Philips, Haier, Google TV, Chromecast with Google TV, Android TV boxes…
+If it runs **Android TV or Google TV**, Clicko talks to it — from brand-new models down to TVs that are years old.
 
-1. On your phone, open the [latest release](../../releases/latest) and download `Clicko-x.y.z.apk`.
-2. Open it. Android asks to allow installs from your browser → **Allow** → **Install**.
-3. Open Clicko → **+** → pick your TV → type the code shown on the TV.
+Just be on the same Wi-Fi. Or turn on your phone's **hotspot** and connect the TV to it — Clicko works there too.
 
-Your phone and TV need to be on the same Wi-Fi (or the TV on your phone's hotspot).
+---
 
-### Updates
-Clicko checks this page for new versions. When one is out, it downloads in the background and shows **Update** — one tap, and your TVs and settings stay as they are.
+## ✨ What you get
 
-## Pro mode (optional)
+### 🎮 A remote that feels better than the real one
+Round D-pad, volume, mute, play/pause, rewind, home, back and power — big, smooth, with a little buzz on every press.
+The power button even shows a **green dot when your TV is on**.
 
-Pro mode uses ADB, Android's built-in developer connection, to add the live screen and full app control. The normal remote never needs it.
+### 👆 Touchpad mode
+Swipe to move, tap to select — like a laptop trackpad for your TV.
 
-1. On the TV: **Settings → Device preferences → About** → click **Build** 7 times.
-2. **Developer options** → turn on **USB / ADB debugging** (and **Network debugging** if listed).
-3. In Clicko: **Settings → Pro mode** → on. Accept **Allow debugging?** on the TV with **Always allow**.
+### 🎙️ Voice search
+One tap opens your TV's voice search. Just say what you want to watch.
 
-Android 11+ TVs with only *Wireless debugging* can pair from the same screen.
+### ⌨️ Type from your phone
+Forget hunting letters with arrow keys. Type on your phone's keyboard and the words **appear on the TV as you type** —
+search YouTube, Hotstar, Netflix, Prime, Wi-Fi passwords, anything.
+One tap **Search YouTube** jumps straight to results.
 
-> Netflix, Hotstar and other DRM apps show black in the live screen — Android blocks capturing protected video.
+### 🚀 Apps in one tap
+YouTube · Netflix · Prime Video · JioHotstar · Spotify · Play Store — open them instantly, no scrolling.
 
-## How it works
+### 🏠 All your TVs
+Living room, bedroom, a friend's place. Pair once, switch any time.
 
-| Part | How |
+---
+
+## ⚡ Pro mode — superpowers for your TV
+
+Turn on Pro mode once and Clicko unlocks things no normal remote can do:
+
+<p align="center">
+  <img src="docs/screenshots/6-pro-live.png" width="260" />
+</p>
+
+- 📡 **Live TV on your phone** — watch your TV's screen live on your phone, in **HD**. Go **full-screen landscape** and it's a second TV in your hand.
+- 🔊 **Real volume slider** — see the exact level and drag to set it.
+- 📱 **Every app on your TV** — the full list with logos. Tap to open, hold to close.
+- ⚙️ **TV settings in one tap** — jump straight into the TV's settings panel.
+- ❌ **Close stuck apps** — force-close whatever's frozen on screen.
+- ℹ️ **TV details** — brand, model, Android version and free storage at a glance.
+
+*How to turn it on:* TV **Settings → About → click "Build" 7 times**, then **Developer options → turn on USB / ADB debugging**. In Clicko: **Settings → Pro mode** → accept **"Allow debugging?"** on the TV with **Always allow**. Done, forever.
+
+> 🔒 Netflix, Hotstar and other protected apps show black in the live view — that's Android protecting their videos, not a bug.
+
+---
+
+## 🪄 Create your own macros
+
+**One tap. A whole routine.**
+
+Chain buttons, apps, text and waits into your own shortcut:
+
+<p align="center">
+  <img src="docs/screenshots/3-macros.png" width="220" />
+</p>
+
+| Macro | What one tap does |
 |---|---|
-| Remote buttons, typing, app links | Google's Android TV Remote protocol (v2 protobuf on ports 6466/6467; v1 JSON for older TVs), TLS with a per-phone certificate |
-| Pro mode | ADB over Wi-Fi via [Kadb](https://github.com/Flyfish233/Kadb) |
-| Live screen | The TV's hardware encoder streams H.264 (`screenrecord`); the phone decodes it with `MediaCodec` |
-| App | Kotlin, Jetpack Compose, Material 3 |
+| 🍿 **Movie night** | Opens Netflix → turns the volume up for the film |
+| 🎧 **Music** | Opens YouTube → straight to search |
+| 🤫 **Quiet** | Brings the volume down five steps |
+| 🌙 **Sleep** | Goes home → switches the TV off |
 
-## Privacy
+Make your own: **Settings → Macros → New macro**. Your TV, your routine.
 
-No account, no analytics, no ads. Everything stays between your phone and your TV on your own network. The only internet request is the update check to this GitHub page.
+---
 
-## License
+## ⬇️ Install in 30 seconds
 
-MIT
+1. On your phone, open the **[latest release](../../releases/latest)** and download **`Clicko-x.y.z.apk`**.
+2. Open it → Android asks to allow installs → **Allow** → **Install**.
+3. Open Clicko → **+** → tap your TV → type the code shown on the TV screen.
+
+That's it — you're in control. 🎉
+
+**Updates are automatic:** when a new version is out, Clicko downloads it quietly and shows an **Update** button. One tap, and your TVs and settings stay exactly as they were.
+
+---
+
+## 🛡️ Private by design
+
+- No account, no sign-up
+- No ads, no tracking, no analytics
+- Everything stays between your phone and your TV, on your own Wi-Fi
+
+---
+
+<p align="center">
+  Made with ☕ in India · <a href="LICENSE">MIT License</a><br/>
+  <sub>If Clicko made your couch life easier, give it a ⭐</sub>
+</p>
