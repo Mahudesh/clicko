@@ -4,21 +4,21 @@
 
 # Clicko
 
-**Your TV, live in your pocket. Control, type, automate.**
+**Your TV, in your pocket. Control, type, automate.**
 
-Watch your Android TV live on your phone, type on it, talk to it, automate it —<br/>
-all over Wi-Fi. Works on brand-new Google TVs and on sets that are years old.
+Control any Android TV from your phone over Wi-Fi — no IR blaster, no lost remote.<br/>
+Works on brand-new Google TVs and on sets that are years old.
 
 <br/>
 
-[![Download](https://img.shields.io/github/v/release/Mahudesh/clicko?style=for-the-badge&label=Download&color=FFB547&labelColor=0B0B0E)](../../releases/latest)
+[![Download](https://img.shields.io/badge/Download-APK-FFB547?style=for-the-badge&labelColor=0B0B0E)](../../releases/latest)
 ![Android](https://img.shields.io/badge/Android-8%2B-4ADE80?style=for-the-badge&labelColor=0B0B0E&logo=android&logoColor=white)
-![Price](https://img.shields.io/badge/Free-no%20ads-F4F2EE?style=for-the-badge&labelColor=0B0B0E)
+![License](https://img.shields.io/badge/License-GPL--3.0-F4F2EE?style=for-the-badge&labelColor=0B0B0E)
 
 <br/>
 
-<img src="docs/screenshots/6-pro-live.png" width="230" />&nbsp;&nbsp;
 <img src="docs/screenshots/1-remote.png" width="230" />&nbsp;&nbsp;
+<img src="docs/screenshots/2-touchpad.png" width="230" />&nbsp;&nbsp;
 <img src="docs/screenshots/3-macros.png" width="230" />
 
 </div>
@@ -31,13 +31,12 @@ all over Wi-Fi. Works on brand-new Google TVs and on sets that are years old.
 |---|:---:|:---:|
 | D-pad, volume, playback | ✅ | ✅ |
 | Old TVs (pre-2020 Android TV) | ⚠️ often fail | ✅ auto-detects |
-| See your TV screen live, in HD | ❌ | ✅ |
-| Full-screen landscape TV view | ❌ | ✅ |
 | Type on TV as you type on phone | ⚠️ sometimes | ✅ |
 | Your own one-tap macros | ❌ | ✅ |
-| Every installed TV app, one list | ❌ | ✅ |
 | Works on your phone's hotspot | ⚠️ | ✅ |
-| Ads / account / tracking | 😩 | **None** |
+| Every installed TV app, one list | ❌ | ✅ |
+| See your TV screen on your phone | ❌ | ✅ |
+| Account / tracking | 😩 | **None** |
 
 <br/>
 
@@ -47,9 +46,8 @@ all over Wi-Fi. Works on brand-new Google TVs and on sets that are years old.
 <tr>
 <td width="50%" valign="top">
 
-### 📡 Live TV, in your hand
-Your TV's screen, streamed to your phone in **HD at the TV's own resolution**.
-Flip to **full-screen landscape** and the TV goes wherever you go in the house.
+### 🎮 A remote that feels better than the real one
+Round D-pad, volume, mute, playback, home, back and power — smooth, with a little buzz on every press.
 
 </td>
 <td width="50%" valign="top">
@@ -106,39 +104,6 @@ New version? Clicko fetches it quietly and asks once. Your TVs and settings stay
 
 <br/>
 
-## ⚡ Pro mode
-
-Flip one switch and Clicko gets the keys to the whole TV.
-
-<div align="center">
-<img src="docs/screenshots/6-pro-live.png" width="250" />
-</div>
-
-- **Live screen** — HD mirror of the TV, with full-screen landscape
-- **Exact volume** — see the real level, drag to set it
-- **Every app** — the complete list with logos; tap to open, hold to force-close
-- **Settings panel** — jump into the TV's settings in one tap
-- **Close stuck apps** — kill whatever froze on screen
-- **TV at a glance** — brand, model, Android version, free storage
-
-<details>
-<summary><b>Turn on Pro mode (one time, 1 minute)</b></summary>
-
-<br/>
-
-1. TV → **Settings → Device preferences → About** → click **Build** 7 times.
-2. **Developer options** → turn on **USB / ADB debugging** (and **Network debugging** if you see it).
-3. Clicko → **Settings → Pro mode** → on.
-4. On the TV, tick **Always allow** → **OK**. That's it, forever.
-
-Newer TVs that only offer *Wireless debugging* can pair from the same screen in Clicko.
-
-> 🔒 Netflix, Hotstar and other protected apps appear black in the live view. That's Android guarding their video, not a bug.
-
-</details>
-
-<br/>
-
 ## 🪄 Macros — one tap, a whole routine
 
 Chain buttons, apps, text and pauses into your own shortcuts. Clicko ships with four to get you going:
@@ -174,15 +139,47 @@ Xiaomi Mi TV · Sony Bravia · TCL · OnePlus · Philips · Haier · Hisense · 
 
 <br/>
 
+## ⚡ Pro mode (optional)
+
+Flip one switch and Clicko gets the keys to the whole TV:
+
+- **Exact volume** — see the real level, drag to set it
+- **Every app** — the complete list with logos; tap to open, hold to force-close
+- **Settings panel** — jump into the TV's settings in one tap
+- **Close stuck apps** — kill whatever froze on screen
+- **TV at a glance** — brand, model, Android version, free storage
+- **Screen view** — see what's on the TV right on your phone, in HD, even full-screen landscape
+
+<div align="center">
+<img src="docs/screenshots/6-pro-live.png" width="230" />
+</div>
+
+<details>
+<summary><b>Turn on Pro mode (one time, 1 minute)</b></summary>
+
+<br/>
+
+1. TV → **Settings → Device preferences → About** → click **Build** 7 times.
+2. **Developer options** → turn on **USB / ADB debugging** (and **Network debugging** if you see it).
+3. Clicko → **Settings → Pro mode** → on.
+4. On the TV, tick **Always allow** → **OK**. That's it, forever.
+
+Newer TVs that only offer *Wireless debugging* can pair from the same screen in Clicko.
+
+> 🔒 Netflix, Hotstar and other protected apps appear black in the screen view. That's Android guarding their video, not a bug.
+
+</details>
+
+<br/>
+
 ## Privacy
 
-No account. No ads. No analytics. Your phone talks to your TV on your own Wi-Fi and nothing else —
+No account. No analytics. Your phone talks to your TV on your own Wi-Fi and nothing else —
 the only internet call is the update check to this page.
 
 <br/>
 
 <div align="center">
-<img src="docs/screenshots/2-touchpad.png" width="180" />&nbsp;
 <img src="docs/screenshots/4-your-tvs.png" width="180" />&nbsp;
 <img src="docs/screenshots/5-settings.png" width="180" />
 
