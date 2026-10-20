@@ -4,7 +4,7 @@
 
 # Clicko
 
-**The TV remote that shows you the TV.**
+**Your TV, live in your pocket. Control, type, automate.**
 
 Watch your Android TV live on your phone, type on it, talk to it, automate it —<br/>
 all over Wi-Fi. Works on brand-new Google TVs and on sets that are years old.
@@ -188,7 +188,7 @@ the only internet call is the update check to this page.
 
 <br/><br/>
 
-Made in India 🇮🇳 · [MIT License](LICENSE)
+Made in India 🇮🇳 · [GPL-3.0 License](LICENSE) © 2026 Mahudesh
 
 <sub>If Clicko made couch life better, drop a ⭐ — it helps others find it.</sub>
 
