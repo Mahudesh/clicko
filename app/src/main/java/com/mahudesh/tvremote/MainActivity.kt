@@ -57,6 +57,41 @@ class MainActivity : ComponentActivity() {
     /** Android 17+ asks the user before an app may reach devices on the local network. */
     private var localNetworkOk by mutableStateOf(true)
     private var showPermissionHelp by mutableStateOf(false)
+    /** Phone-side speech recognition for the Voice button. */
+    private var onHeard: ((String) -> Unit)? = null
+    private val listenLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        val said = result.data?.getStringArrayListExtra(android.speech.RecognizerIntent.EXTRA_RESULTS)?.firstOrNull()?.trim()
+        if (!said.isNullOrEmpty()) onHeard?.invoke(said)
+        onHeard = null
+    }
+
+    private val voice by lazy { com.mahudesh.tvremote.data.Voice(this) }
+    private val askMic = registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+        val cb = onHeard ?: return@registerForActivityResult
+        if (granted) voice.listen { said -> onHeard = null; cb(said) }
+        else { onHeard = null; android.widget.Toast.makeText(this, "Allow the microphone to use voice", android.widget.Toast.LENGTH_SHORT).show() }
+    }
+
+    /**
+     * Voice button. 1) the phone's voice prompt (Google app etc.), 2) our own listener on any
+     * speech engine incl. Android 12+ on-device, 3) nothing on the phone: the TV's voice search.
+     */
+    private fun listen(onText: (String) -> Unit) {
+        onHeard = onText
+        voice.promptIntent()?.let { intent ->
+            try { listenLauncher.launch(intent); return } catch (_: android.content.ActivityNotFoundException) { }
+        }
+        if (voice.canListenInApp()) {
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
+                voice.listen { said -> onHeard = null; onText(said) }
+            } else askMic.launch(android.Manifest.permission.RECORD_AUDIO)
+            return
+        }
+        onHeard = null
+        controller.key(Keys.SEARCH)
+        android.widget.Toast.makeText(this, "This phone has no voice typing, so the TV's own voice search opened", android.widget.Toast.LENGTH_LONG).show()
+    }
+
     private val askLocalNetwork = registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
         localNetworkOk = granted
         showPermissionHelp = !granted
@@ -110,6 +145,7 @@ class MainActivity : ComponentActivity() {
                     override fun syncText(text: String) = controller.syncText(text)
                     override fun submitText(text: String) { controller.submitText(text) }
                     override fun keyboardOpened() = controller.resetTyping()
+                    override fun listen(onText: (String) -> Unit) = this@MainActivity.listen(onText)
                     override fun searchYouTube(query: String) =
                         controller.openLink("https://www.youtube.com/results?search_query=" + android.net.Uri.encode(query))
                     override fun onSettings() { screen = Screen.Settings }
@@ -181,6 +217,10 @@ class MainActivity : ComponentActivity() {
                     }
                 }
 
+                // In-app listening (phones without a system voice prompt).
+                val voiceState by voice.state.collectAsStateWithLifecycle()
+                com.mahudesh.tvremote.ui.screens.VoiceSheet(voiceState, onCancel = { voice.stop(); onHeard = null }, onErrorShown = voice::clearError)
+
                 // A downloaded update from GitHub Releases, over whatever screen is open.
                 val update by updater.ready.collectAsStateWithLifecycle()
                 update?.let { u ->
@@ -210,6 +250,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onStop() {
         super.onStop()
+        voice.stop()
         controller.onBackground()
     }
 }

@@ -87,6 +87,8 @@ interface RemoteActions : TvSheetActions {
     fun syncText(text: String)
     fun submitText(text: String)
     fun keyboardOpened() {}
+    /** Listens on the phone's mic and hands back what was said (null if nothing / cancelled). */
+    fun listen(onText: (String) -> Unit) {}
     fun searchYouTube(query: String) {}
     fun onSettings()
 }
@@ -104,7 +106,8 @@ fun RemoteScreen(
     actions: RemoteActions,
 ) {
     var touchMode by rememberSaveable { mutableStateOf(false) }
-    var voiceOn by rememberSaveable { mutableStateOf(false) }
+    /** What the phone heard; pre-fills the typing sheet so it can go to the TV. */
+    var heard by rememberSaveable { mutableStateOf<String?>(null) }
     var overlay by rememberSaveable { mutableStateOf(Overlay.None) }
     val haze = rememberHazeState()
 
@@ -144,16 +147,22 @@ fun RemoteScreen(
                 // and tapping again undoes them (Back on the TV / back to the D-pad / close the keyboard).
                 Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                     RemoteButton(
-                        Lu.Home, "Home. Long-press for TV settings", { voiceOn = false; actions.key(Keys.HOME) }, size = key,
+                        Lu.Home, "Home. Long-press for TV settings", { actions.key(Keys.HOME) }, size = key,
                         onLongPress = { actions.key(Keys.SETTINGS) },
                     )
+                    // Voice: the phone listens (TVs can't hear the phone's mic), then the words
+                    // go to the TV through the typing sheet. Not a toggle, so a second tap never sends Back.
                     RemoteButton(
-                        Lu.Mic, if (voiceOn) "Close voice search" else "Voice search",
+                        Lu.Mic, "Voice search: speak, and it's typed on the TV",
                         {
-                            actions.key(if (voiceOn) Keys.BACK else Keys.SEARCH)
-                            voiceOn = !voiceOn
+                            actions.listen { said ->
+                                actions.keyboardOpened()
+                                actions.syncText(said) // straight into the TV's focused search box
+                                heard = said
+                                overlay = Overlay.Keyboard
+                            }
                         },
-                        size = key, active = voiceOn,
+                        size = key,
                     )
                     RemoteButton(
                         Lu.Touch, if (touchMode) "Back to D-pad" else "Touchpad",
@@ -163,7 +172,7 @@ fun RemoteScreen(
                         Lu.Keyboard, if (overlay == Overlay.Keyboard) "Close keyboard" else "Keyboard",
                         {
                             if (overlay == Overlay.Keyboard) overlay = Overlay.None
-                            else { actions.keyboardOpened(); overlay = Overlay.Keyboard }
+                            else { actions.keyboardOpened(); heard = null; overlay = Overlay.Keyboard }
                         },
                         size = key, active = overlay == Overlay.Keyboard,
                     )
@@ -214,11 +223,11 @@ fun RemoteScreen(
         ) {
             KeyboardSheet(
                 haze = haze,
-                initial = status.textFieldValue,
+                initial = heard ?: status.textFieldValue,
                 onChange = actions::syncText,
-                onSubmit = { actions.submitText(it); overlay = Overlay.None },
-                onClose = { overlay = Overlay.None },
-                onSearchYouTube = { actions.searchYouTube(it); overlay = Overlay.None },
+                onSubmit = { actions.submitText(it); overlay = Overlay.None; heard = null },
+                onClose = { overlay = Overlay.None; heard = null },
+                onSearchYouTube = { actions.searchYouTube(it); overlay = Overlay.None; heard = null },
             )
         }
 

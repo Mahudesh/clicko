@@ -62,7 +62,7 @@ YouTube, Hotstar, Netflix, Prime, Wi-Fi passwords. One tap **Search YouTube**.
 <td valign="top">
 
 ### 🎙️ Voice search
-One tap wakes your TV's voice search. Say the movie, done.
+Speak into your phone — Clicko turns it into text and types it on the TV. Say the movie, done.
 
 </td>
 <td valign="top">

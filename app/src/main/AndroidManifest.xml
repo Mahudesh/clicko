@@ -8,6 +8,14 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <!-- In-app updates: install a newer Clicko APK downloaded from GitHub Releases. -->
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <!-- Voice button: only used when the phone has no speech prompt app and we listen ourselves. -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <!-- Android 11+ hides other apps unless declared: we need to find a speech recognizer. -->
+    <queries>
+        <intent><action android:name="android.speech.action.RECOGNIZE_SPEECH" /></intent>
+        <intent><action android:name="android.speech.RecognitionService" /></intent>
+    </queries>
     <!-- Android 17+: talking to devices on the local network (the TV) is a runtime permission. -->
     <uses-permission android:name="android.permission.ACCESS_LOCAL_NETWORK" />
 
