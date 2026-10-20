@@ -157,7 +157,6 @@ fun RemoteScreen(
                         {
                             actions.listen { said ->
                                 actions.keyboardOpened()
-                                actions.syncText(said) // straight into the TV's focused search box
                                 heard = said
                                 overlay = Overlay.Keyboard
                             }
@@ -174,7 +173,7 @@ fun RemoteScreen(
                             if (overlay == Overlay.Keyboard) overlay = Overlay.None
                             else { actions.keyboardOpened(); heard = null; overlay = Overlay.Keyboard }
                         },
-                        size = key, active = overlay == Overlay.Keyboard,
+                        size = key, active = overlay == Overlay.Keyboard && heard == null,
                     )
                 }
 
@@ -228,6 +227,7 @@ fun RemoteScreen(
                 onSubmit = { actions.submitText(it); overlay = Overlay.None; heard = null },
                 onClose = { overlay = Overlay.None; heard = null },
                 onSearchYouTube = { actions.searchYouTube(it); overlay = Overlay.None; heard = null },
+                voiceMode = heard != null,
             )
         }
 

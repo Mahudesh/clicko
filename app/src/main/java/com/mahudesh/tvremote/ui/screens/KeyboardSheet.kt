@@ -57,6 +57,8 @@ fun KeyboardSheet(
     onSubmit: (String) -> Unit,
     onClose: () -> Unit,
     onSearchYouTube: (String) -> Unit = {},
+    /** Opened from the Voice button: nothing is typed live; the only action is a YouTube search. */
+    voiceMode: Boolean = false,
 ) {
     var text by remember { mutableStateOf(initial) }
     val focus = remember { FocusRequester() }
@@ -84,7 +86,7 @@ fun KeyboardSheet(
         Box(Modifier.align(Alignment.CenterHorizontally).size(36.dp, 4.dp).clip(CircleShape).background(Ink.line))
         Spacer(Modifier.height(14.dp))
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Text("Type on TV", style = MaterialTheme.typography.titleLarge, color = Ink.text, modifier = Modifier.weight(1f))
+            Text(if (voiceMode) "Voice search" else "Type on TV", style = MaterialTheme.typography.titleLarge, color = Ink.text, modifier = Modifier.weight(1f))
             SheetIcon(Lu.Close, "Close keyboard") { onClose() }
         }
         Spacer(Modifier.height(12.dp))
@@ -104,21 +106,28 @@ fun KeyboardSheet(
                     onValueChange = {
                         text = it
                         haptics.tick()
-                        onChange(it)
+                        if (!voiceMode) onChange(it)
                     },
                     singleLine = true,
                     textStyle = MaterialTheme.typography.bodyLarge.copy(color = Ink.text),
                     cursorBrush = SolidColor(Ink.amber),
-                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Send),
-                    keyboardActions = KeyboardActions(onSend = { haptics.success(); onSubmit(text) }),
+                    keyboardOptions = KeyboardOptions(imeAction = if (voiceMode) ImeAction.Search else ImeAction.Send),
+                    keyboardActions = KeyboardActions(
+                        onSend = { haptics.success(); onSubmit(text) },
+                        onSearch = { if (text.isNotBlank()) { haptics.success(); onSearchYouTube(text) } },
+                    ),
                     modifier = Modifier.fillMaxWidth().focusRequester(focus),
                 )
             }
             Spacer(Modifier.width(10.dp))
-            SheetIcon(Lu.Send, "Send", accent = true) { haptics.success(); onSubmit(text) }
+            if (voiceMode) YouTubeButton(enabled = text.isNotBlank()) { haptics.success(); onSearchYouTube(text) }
+            else SheetIcon(Lu.Send, "Send", accent = true) { haptics.success(); onSubmit(text) }
         }
         Spacer(Modifier.height(12.dp))
-        Row(verticalAlignment = Alignment.CenterVertically) {
+        if (voiceMode) Text(
+            "Fix the words if needed, then tap YouTube to search on your TV.",
+            style = MaterialTheme.typography.labelMedium, color = Ink.muted,
+        ) else Row(verticalAlignment = Alignment.CenterVertically) {
             Text(
                 "Open a search box on the TV first; letters appear there as you type. " +
                     "For YouTube, just type here and tap Search YouTube.",
@@ -136,6 +145,24 @@ fun KeyboardSheet(
                     .padding(horizontal = 10.dp, vertical = 8.dp),
             )
         }
+    }
+}
+
+/** Red YouTube mark: searches YouTube on the TV. */
+@Composable
+private fun YouTubeButton(enabled: Boolean, onClick: () -> Unit) {
+    Box(
+        Modifier
+            .size(46.dp)
+            .clip(CircleShape)
+            .background(if (enabled) androidx.compose.ui.graphics.Color(0xFFFF0033) else Ink.raised)
+            .clickable(enabled = enabled, onClickLabel = "Search on YouTube", onClick = onClick),
+        contentAlignment = Alignment.Center,
+    ) {
+        Icon(
+            androidx.compose.ui.res.painterResource(com.mahudesh.tvremote.R.drawable.brand_youtube), "Search on YouTube",
+            tint = if (enabled) androidx.compose.ui.graphics.Color.White else Ink.faint, modifier = Modifier.size(22.dp),
+        )
     }
 }
 
